@@ -1,63 +1,62 @@
-/*
+/* 
+    crie uma lista de pacientes
 
-    Faça um programa que tenha um menu e apresente a seguinte mensagem:
+    cada paciente deverá conter
+    nome
+    idade
+    peso
+    altura
 
-    olá usuário! Digite o número da opção desejada
-        
-        1. Cadastrar um item na lista
-        2. Mostrar Itens cadastrados
-        3. Sair do programa.
-
-    ---
-
-    O Programa deverá capturar o número digitado pelo usuário e mostrar os seguintes cenários:
-
-    Caso o usuário digite 1, ele poderá cadastrar um item em uma lista
-    Caso o usuário digite 2, ele poderá ver os itens cadastrados
-        se não houver nenhum item cadastrado, mostrara a mensagem:
-            "Não existem itens cadasrtrados"
-    caso o usuário digite 3, a apliacação deverá ser encerrada.
-*/
-
-/* dados de entrada do usuário
-    1. Número desejado
-    2. Item da lista
-
-   Quais são as variaveis?
-    1. Opção digitada
-    2. Lista de itens
-    3.
+    escreva uma lista contendo o nome dos pacientes
 
     */
-    let option
-    let items = []
-    // let index = 0; //Jeito alternativo de colocar info no array (index = 0 quando roda acrescente 1 numero em index)
 
-while(option != 3){
+    const pacients = [
+        {
+            name: "Luiz",
+            age: 20,
+            weight: 120,
+            height: 177
 
-    let option = Number(prompt(` 
-    olá usuário! Digite o número da opção desejada
-            
-    1. Cadastrar um item na lista
-    2. Mostrar Itens cadastrados
-    3. Sair do programa.`))
+        },
+        {
+            name: "josé",
+            age: 20,
+            weight: 130,
+            height: 177
+        },
+        {
+            name: "Amanda",
+            age: 20,
+            weight: 50,
+            height: 157
+    },
+    ]
 
+let patientsNames = []
 
-    if (option == 1) {
-       let item = prompt("Digite o nome do item")
-       items.push(item)
-        //index++
-    } else if (option == 2 ) {
-
-        if(items.length == 0){
-            alert("não existe itens cadastrados")
-        } else{
-            alert(items) 
-        }    
-    } else
-    {
-        alert("Aplicação encerrada")
-    }
-
-    console.log(option, items)
+for(let pacient of pacients){
+    patientsNames.push(pacient.name, pacient.age, pacient.weight, pacient.height)
 }
+
+/*for(let index = 0; index < pacients.length; index++){  //for antigo
+    patientsNames[index] = pacients[index].name
+}*/
+
+function calcIMC(weight, height) {
+    return (weight / ((height /100) **2)).toFixed(2)
+    
+}
+
+
+function  printPatientIMC(pacients){
+    return `
+    Paciente ${pacients.name} possui o IMC de: ${calcIMC(pacients.weight, pacients.height)}
+`
+}
+
+for(let pacient of pacients){
+    let IMCmessage = printPatientIMC(pacient)
+    alert(IMCmessage)
+}
+
