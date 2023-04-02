@@ -60,3 +60,24 @@ for(let pacient of pacients){
     alert(IMCmessage)
 }
 
+let number1 = prompt(Number('Insira um número'))
+let number2 = prompt(Number('Insira um número'))
+
+
+function somar (number1,  number2) {
+    return number1 + number2
+   }
+   
+   let testePar = somar
+   
+   function resto (somar){
+         return somar % 2
+   }
+   
+   if (resto == 0) {
+        Alert('este número é par')
+   } else {
+        alert('este número é impar')
+   }
+
+   console.log()
